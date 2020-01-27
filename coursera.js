@@ -8,8 +8,6 @@
 // @grant        none
 // ==/UserScript==
 
-
-
 if(document.body && document.domain == 'www.coursera.org') {
     var scrollIntervalCoursera = setInterval(transcScrollEnable, 1000);
 }
