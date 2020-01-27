@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Coursera transcript scroll
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/olegre/tampermonkey/blob/master/coursera.js
 // @version      1.1
 // @description  make a scroll for transcript and make resizable the video player
 // @author       You
