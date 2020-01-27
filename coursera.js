@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Coursera transcript scroll
 // @namespace    https://github.com/olegre/tampermonkey/blob/master/coursera.js
-// @version      1.1
+// @version      1.2
 // @description  make a scroll for transcript and make resizable the video player
 // @author       You
 // @match        https://www.coursera.org/learn/*
@@ -25,7 +25,7 @@ function transcScrollEnable(){
     document.getElementsByClassName("rc-Transcript")[0].style.maxWidth="none";
     document.getElementsByClassName("video-name")[0].style.display="none";
 
-    console.log("enable transcript scroll");
+    //console.log("enable transcript scroll");
     if(document.getElementsByClassName("rc-VideoTranscriptToolbar")[0].style.display=="none"){
         clearInterval(scrollIntervalCoursera)
     }
