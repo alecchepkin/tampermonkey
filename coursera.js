@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Coursera transcript scroll
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  make a scroll for transcript and make resizable the video player
 // @author       You
 // @match        https://www.coursera.org/learn/*
