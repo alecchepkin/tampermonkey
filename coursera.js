@@ -22,7 +22,6 @@ function transcScrollEnable(){
     document.getElementsByClassName("rc-VideoToolbar")[0].style.maxWidth="none";
     document.getElementsByClassName("rc-Transcript")[0].style.maxWidth="none";
     document.getElementsByClassName("video-name")[0].style.display="none";
-
     //console.log("enable transcript scroll");
     if(document.getElementsByClassName("rc-VideoTranscriptToolbar")[0].style.display=="none"){
         clearInterval(scrollIntervalCoursera)
