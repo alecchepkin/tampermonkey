@@ -9,9 +9,6 @@
 // ==/UserScript==
 
 function submitTransHandler(e){
-    console.log("Working 2");
-
-    console.log('hi');
     if (e.keyCode == 13){
         console.log('it is 13');
         var trans_options = document.getElementsByClassName('writing-list__translates-text')
@@ -20,7 +17,6 @@ function submitTransHandler(e){
 }
 
 
-console.log("Working ...");
 if(document.getElementsByClassName('writing__repeat-words').length){
     vocabulary()
 }
@@ -29,18 +25,13 @@ if(document.getElementsByClassName('writing__repeat-words').length){
 
 var puzzle_textarea = document.getElementsByClassName('puzzle-textarea');
 if(puzzle_textarea.length){
-    console.log("Working 1");
     setInterval(showOptions, 1000);
 
 }
 var trans_options = [];
 
 function showOptions(){
-    console.log("Working 1.2");
-
-
     var opts = document.getElementsByClassName('writing-list__translates-text');
-
     for(var i=0; i< opts.length; i++){
         var opt = opts[i];
         var id = opt.getAttribute('id');
@@ -73,6 +64,6 @@ function vocabulary(){
             }
         }
     }
-    }
+}
 
 
