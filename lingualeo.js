@@ -1,59 +1,40 @@
 // ==UserScript==
-// @name         Puzzle Writing Vocabulary
+// @name         Lingualeo My Vocabulary
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  impromve vacabulary in translates
+// @description  Change placement of words
 // @author       You
-// @match        https://puzzle-english.com/writing/*
+// @match        https://lingualeo.com/ru/dictionary/vocabulary/my
 // @grant        none
 // ==/UserScript==
 
-function submitTransHandler(e){
+(function () {
 
-    if (e.keyCode == 13){
-        console.log('it is 13');
-        var trans_options = document.getElementsByClassName('writing-list__translates-text')
-        trans_options[trans_options.length-1].click()
+    function change(){
+        addTo('sets-words__my-word', [
+            ['display', 'inline-block'],
+            ['float', 'left'],
+        ])
+
+
+        addTo('sets-words__my-word-translate', [
+            ['display', 'inline-block'],
+            ['float', 'right'],
+            ['width', 'fit-content']
+        ])
+
+        addTo('sets-words__col_word',[
+          ['width', '600px']
+        ])
     }
-}
 
-
-if(document.getElementsByClassName('writing__repeat-words').length){
-    vocabulary()
-}
-
-
-
-var puzzle_textarea = document.getElementsByClassName('puzzle-textarea');
-if(puzzle_textarea.length){
-    setInterval(showOptions, 1000);
-
-}
-var trans_options = [];
-
-function showOptions(){
-    var opts = document.getElementsByClassName('writing-list__translates-text');
-
-    for(var i=0; i< opts.length; i++){
-        var opt = opts[i];
-        var id = opt.getAttribute('id');
-        if(!trans_options.includes(id)){
-            trans_options.push(id);
-            console.log(id);
-            opt.click();
+    function toogleCardDisc(){
+         if(document.getElementsByClassName('ll-leokit__word-card__info-toggle').length > 0 &&
+          document.getElementsByClassName('ll-leokit__word-card__main-with-secondary').length === 0
+          ){
+            document.getElementsByClassName('ll-leokit__word-card__info-toggle')[0].click();
         }
     }
-}
-
-function vocabulary(){
-    addTo('writing__repeat-words-item', [
-        ['width', '100%'],
-        ['border-bottom', '1px dotted gray'],
-    ]);
-    addTo('word-wrapper', [
-        ['min-width', '500px'],
-        ['display', 'inline-block']
-    ]);
 
     function addTo(cls, styles) {
         var elems = document.getElementsByClassName(cls);
@@ -66,6 +47,8 @@ function vocabulary(){
             }
         }
     }
-    }
 
+    setInterval(change, 1000);
+    setInterval(toogleCardDisc, 1000);
 
+})()
