@@ -17,7 +17,8 @@ function transcScrollEnable() {
         return
     }
     const tr = document.getElementsByClassName("rc-InteractiveTranscript");
-    tr[0].style.height = "300px";
+    tr[0].style.height = "550px";
+    tr[0].style.fontSize = "10px";
     tr[0].style.overflow = "scroll";
     document.getElementsByClassName("rc-VideoTranscriptToolbar")[0].style.display = "none";
     document.getElementsByClassName("rc-VideoItemWithHighlighting")[0].style.maxWidth = "none";
