@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Puzzle Writing Vocabulary
 // @namespace    https://github.com/olegre/tampermonkey/blob/master/puzzleenglish.js
-// @version      1.2
+// @version      1.4
 // @description  Change in Translates vocabulary order, show translate options, click on the Show Answer
 // @author       You
 // @match        https://puzzle-english.com/writing/*
@@ -11,6 +11,7 @@
 (function () {
     "use strict"
 
+    // change vocabulary style
     let $words = document.getElementsByClassName('writing__repeat-words');
     if ($words.length) {
 
@@ -51,6 +52,11 @@
     if (textareas().length) {
         setInterval(showOptions, 1000);
         setInterval(clickShowResult, 500);
+        // fullscreen mode
+        document.querySelector('.fullscreen-mode-line__toggle .j-train-popup__open').click()
+        //scroll to textarea
+        //window.scrollTo(0, text().scrollHeight)
+
     }
 
     var trans_options = [];
