@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Puzzle Writing Vocabulary
-// @namespace    https://github.com/olegre/tampermonkey/blob/master/puzzleenglish.js
+// @namespace    https://raw.githubusercontent.com/olegre/tampermonkey/master/puzzleenglish.js
 // @version      1.5
 // @description  Change in Translates vocabulary order, show translate options, click on the Show Answer
 // @author       You
@@ -68,6 +68,14 @@
                 for (var i = 0; i < aTags.length; i++) {
                     if (aTags[i].textContent == searchText) {
                         aTags[i].click()
+                        setTimeout(()=>{
+                            let txt = getText();
+                            let val = txt.value;
+                            txt.focus();
+                            txt.value = '';
+                            txt.value = val;
+                            console.log('focus');
+                        }, 100)
                     }
                 }
             }
