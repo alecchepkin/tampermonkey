@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Puzzle Writing Vocabulary
 // @namespace    https://github.com/olegre/tampermonkey/blob/master/puzzleenglish.js
-// @version      1.4
+// @version      1.5
 // @description  Change in Translates vocabulary order, show translate options, click on the Show Answer
 // @author       You
 // @match        https://puzzle-english.com/writing/*
@@ -14,6 +14,11 @@
     // change vocabulary style
     let $words = document.getElementsByClassName('writing__repeat-words');
     if ($words.length) {
+
+        //hide title for vocabulary
+        document.querySelector('#rjs-featured-words > div > div > div > div.puzzle-text_fz_30.puzzle_mb_40.puzzle_ta_center').style.display = 'none'
+        //hide button 'add all words'
+        document.querySelector('#rjs-featured-words > div > div > div > div.writing__repeat-words.puzzle_ta_center').style.display = 'none'
 
         addTo('writing__repeat-words-item', [
             ['width', '100%'],
@@ -35,7 +40,8 @@
             }
         }
 
-        setTimeout(() => $words[1].scrollIntoView(), 1000);
+        // scroll to words
+        setTimeout(() => document.querySelector('body > div.page-wrapper > div.puzzle-subheader > div > div.row.center-xs > div > a').scrollIntoView(), 1000);
         // entter click to start translate
         document.addEventListener('keydown', event => {
             if (event.code == 'Enter') {
@@ -43,20 +49,29 @@
             }
         });
 
-        function logKey(e) {
-            console.log(` ${e.code}`);
-        }
-
     }
 
     if (textareas().length) {
         setInterval(showOptions, 1000);
-        setInterval(clickShowResult, 500);
+        //setInterval(clickShowResult, 500);
         // fullscreen mode
         document.querySelector('.fullscreen-mode-line__toggle .j-train-popup__open').click()
         //scroll to textarea
         //window.scrollTo(0, text().scrollHeight)
 
+        // change translate
+        document.addEventListener('keydown', event => {
+            if (event.code == 'ArrowUp') {
+                console.log('clickChangeYourTranslate');
+                var aTags = document.getElementsByTagName("span");
+                var searchText = "Исправить свой перевод";
+                for (var i = 0; i < aTags.length; i++) {
+                    if (aTags[i].textContent == searchText) {
+                        aTags[i].click()
+                    }
+                }
+            }
+        });
     }
 
     var trans_options = [];

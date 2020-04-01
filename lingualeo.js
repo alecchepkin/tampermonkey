@@ -10,7 +10,13 @@
 
 (function () {
 
-    function change(){
+    function change() {
+        // hide searh
+        document.getElementById('filter-header').style.display = 'none';
+        document.getElementsByClassName('ll-leokit__site-menu__vertical-scroller')[0].style.display = 'none';
+        if (document.getElementsByClassName('ll-application__footer__m-sticky').length) {
+            document.getElementsByClassName('ll-application__footer__m-sticky')[0].style.display = 'none';
+        }
         addTo('sets-words__my-word', [
             ['display', 'inline-block'],
             ['float', 'left'],
@@ -23,15 +29,15 @@
             ['width', 'fit-content']
         ])
 
-        addTo('sets-words__col_word',[
-          ['width', '600px']
+        addTo('sets-words__col_word', [
+            ['width', '600px']
         ])
     }
 
-    function toogleCardDisc(){
-         if(document.getElementsByClassName('ll-leokit__word-card__info-toggle').length > 0 &&
-          document.getElementsByClassName('ll-leokit__word-card__main-with-secondary').length === 0
-          ){
+    function toogleCardDisc() {
+        if (document.getElementsByClassName('ll-leokit__word-card__info-toggle').length > 0 &&
+            document.getElementsByClassName('ll-leokit__word-card__main-with-secondary').length === 0
+        ) {
             document.getElementsByClassName('ll-leokit__word-card__info-toggle')[0].click();
         }
     }
