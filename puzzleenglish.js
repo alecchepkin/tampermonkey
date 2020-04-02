@@ -68,7 +68,7 @@
                 for (var i = 0; i < aTags.length; i++) {
                     if (aTags[i].textContent == searchText) {
                         aTags[i].click()
-                        setTimeout(()=>{
+                        setTimeout(() => {
                             let txt = getText();
                             let val = txt.value;
                             txt.focus();
@@ -79,7 +79,12 @@
                     }
                 }
             }
+            if (event.code == 'Enter') {
+                    
+                getText().focus();
+            }
         });
+
     }
 
     var trans_options = [];
